@@ -15,11 +15,8 @@ It also features a **Large Files** scanner that recursively searches your user d
 - Administrative Privileges (to properly query the registry and execute uninstallation strings)
 
 ## Download & Run
-1. Go to the **Releases** tab and download `Declutter.exe`.
+1. Download **[Declutter.exe v1.1](https://github.com/dinu1996/Declutter/releases/download/v1.1/Declutter.exe)**.
 2. Run `Declutter.exe`. (A UAC prompt will appear to request admin access).
-
-## Screenshots
-*Screenshots coming soon*
 
 ## Changelog
 - **v1.1**: Custom icon and alternating row colors for improved readability.
