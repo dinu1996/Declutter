@@ -12,18 +12,22 @@ It also features a **Large Files** scanner that recursively searches your user d
 
 ## Requirements
 - Windows 10 or Windows 11
-- Python 3.10+
 - Administrative Privileges (to properly query the registry and execute uninstallation strings)
 
-## How to Run
+## Download & Run
+1. Go to the **Releases** tab and download `Declutter.exe`.
+2. Run `Declutter.exe`. (A UAC prompt will appear to request admin access).
 
-### Run from Source
-1. Clone the repository and install requirements (e.g. `pip install customtkinter`).
-2. Run `main.py` with Administrator privileges.
+## Screenshots
+*Screenshots coming soon*
 
-### Build Executable
-Declutter can be compiled into a single, standalone executable using PyInstaller.
+## Changelog
+- **v1.1**: Custom icon and alternating row colors for improved readability.
+- **v1.0**: Initial release featuring unified registry, Appx, and Winget app fetching with large file scanning.
+
+## For Developers
+If you want to build Declutter from source, you can use PyInstaller:
 ```powershell
-pyinstaller --noconsole --onefile --uac-admin --name "Declutter" main.py
+pip install -r requirements.txt
+pyinstaller --noconsole --onefile --uac-admin --icon=icon.ico --add-data "icon.ico;." --name "Declutter" main.py
 ```
-This command automatically bakes in the UAC Administrator prompt and outputs `Declutter.exe` into the `dist` folder.

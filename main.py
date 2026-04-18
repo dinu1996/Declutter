@@ -30,6 +30,11 @@ class SystemCleanerApp(ctk.CTk):
         super().__init__()
 
         self.title("Declutter")
+        
+        # Set icon
+        icon_path = os.path.join(sys._MEIPASS, "icon.ico") if hasattr(sys, '_MEIPASS') else "icon.ico"
+        if os.path.exists(icon_path):
+            self.iconbitmap(icon_path)
         self.geometry("900x600")
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("blue")
@@ -89,8 +94,9 @@ class SystemCleanerApp(ctk.CTk):
         for widget in self.apps_scrollable_frame.winfo_children():
             widget.destroy()
 
-        for app in apps_to_display:
-            row_frame = ctk.CTkFrame(self.apps_scrollable_frame)
+        for idx, app in enumerate(apps_to_display):
+            bg_color = "#2b2b2b" if idx % 2 == 0 else "#333333"
+            row_frame = ctk.CTkFrame(self.apps_scrollable_frame, fg_color=bg_color)
             row_frame.pack(fill="x", pady=2, padx=5)
             
             info_text = f"{app['name']} (v{app['version']}) - [{app['source']}]"
@@ -163,8 +169,9 @@ class SystemCleanerApp(ctk.CTk):
         self.files_status_label.configure(text=f"Scan complete. Found top {len(files)} files.")
         self.scan_btn.configure(state="normal")
 
-        for size, path, timestamp in files:
-            row_frame = ctk.CTkFrame(self.files_scrollable_frame)
+        for idx, (size, path, timestamp) in enumerate(files):
+            bg_color = "#2b2b2b" if idx % 2 == 0 else "#333333"
+            row_frame = ctk.CTkFrame(self.files_scrollable_frame, fg_color=bg_color)
             row_frame.pack(fill="x", pady=2, padx=5)
 
             name = os.path.basename(path)
